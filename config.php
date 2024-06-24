@@ -1,6 +1,7 @@
 <?php
 
 
+
 class crud{
 
     public static function connect(){
@@ -23,7 +24,7 @@ class crud{
 }
 // function user table
 public static function selectDataUser(){
-    $data = array();
+  
     $con=crud::connect()->prepare("SELECT * FROM users");
     $con->execute();
     $data= $con->fetchAll(PDO::FETCH_ASSOC);
@@ -100,7 +101,7 @@ public static function selectComments(){
 }
 // function cart table
 public static function selectcartTable(){
-    $sql="SELECT products.id,products.productName,products.title,products.image,products.price,cart.quantity
+    $sql="SELECT products.id,products.new_Price,products.discount,products.productName,products.title,products.image,products.price,cart.quantity
     FROM products
     INNER JOIN cart 
     ON products.id=cart.product_id
@@ -112,4 +113,5 @@ public static function selectcartTable(){
 }
 
 }
+
 ?>
